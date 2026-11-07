@@ -1,0 +1,158 @@
+{
+  "type": "object",
+  "properties": {
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "card": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "keep": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true
+          },
+          "change": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "to": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "how": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "required": [
+                "from",
+                "to",
+                "how"
+              ]
+            }
+          },
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "from": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "from"
+              ]
+            }
+          },
+          "remove": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "required": [
+                "id",
+                "reason"
+              ]
+            }
+          },
+          "focus": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "camera": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "clear_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "beats"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anytomanim:storyboard:v1",
+  "title": "AnyToManim storyboard",
+  "description": "IDs and order must match beats.json. Objects persist unless removed or changed to a new ID. keep documents continuity; it is not an exhaustive inventory. keep, change.from, remove.id and add.from refer to beat-entry objects (including sources consumed by this beat). Changes are simultaneous; focus refers to beat-end objects. A nonempty clear_reason clears unmentioned entry objects, retaining keep and change targets. Keep/change/remove sources must be disjoint. Absent arrays default to []; card/focus/clear_reason default to null; camera defaults to none. An add.from of null declares no provenance. Empty-add beats break the ungrounded-addition streak. Lifetime counts beat-end appearances of each ID; renamed targets start a new lifetime. CLI performs cross-beat semantic checks; JSON Schema alone only checks structure."
+}

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 512 512" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <title>AnyToManim</title>
+  <defs>
+    <!-- Near-black background, matching the project's video BG token -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d1d24"/>
+      <stop offset="100%" stop-color="#0e0e10"/>
+    </linearGradient>
+    <!-- 3b1b blue accent, top-lit -->
+    <linearGradient id="bars" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fdcf0"/>
+      <stop offset="55%" stop-color="#58c4dd"/>
+      <stop offset="100%" stop-color="#2f8aa8"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="38%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- App-icon base -->
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="url(#bg)" filter="url(#soft)"/>
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="url(#gloss)"/>
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="none" stroke="#2c2c36" stroke-width="2"/>
+  <rect x="27" y="27" width="458" height="458" rx="101" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2"/>
+
+  <!-- Narration-drives-animation glyph: an equalizer whose bars
+       trace a right-pointing play triangle -->
+  <g fill="url(#bars)">
+    <rect x="139" y="141" width="22" height="230" rx="11"/>
+    <rect x="167" y="155" width="22" height="202" rx="11"/>
+    <rect x="195" y="169" width="22" height="174" rx="11"/>
+    <rect x="223" y="183" width="22" height="146" rx="11"/>
+    <rect x="251" y="197" width="22" height="118" rx="11"/>
+    <rect x="279" y="211" width="22" height="90"  rx="11"/>
+    <rect x="307" y="225" width="22" height="62"  rx="11"/>
+    <rect x="335" y="239" width="22" height="34"  rx="11"/>
+  </g>
+</svg>

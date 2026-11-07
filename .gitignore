@@ -1,0 +1,23 @@
+.DS_Store
+__pycache__/
+.venv/
+venv/
+media/
+renders/
+*.log
+.env
+node_modules/
+assets/voice/
+slice/audio/
+slice/renders/
+slice/media/
+voiceovers/
+runs/
+src/anytomanim.egg-info/
+
+# example narration audio is regenerated with `anytomanim tts --beats`
+examples/*/audio/
+examples/*/subs/
+
+# stable siblings used to serialize atomic manifest updates
+*.json.lock

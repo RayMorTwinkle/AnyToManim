@@ -1,0 +1,14 @@
+{
+  "seconds": [60, 90],
+  "topics": [
+    {"id": "gradient", "topic": "梯度下降：為什麼沿著梯度的反方向走，就能找到函數的低點；學習率太大或太小會發生什麼"},
+    {"id": "fourier", "topic": "傅立葉級數：為什麼方波可以用一堆正弦波疊加出來"},
+    {"id": "hashtable", "topic": "雜湊表：為什麼查找平均只要 O(1)，以及碰撞發生時怎麼辦"}
+  ],
+  "models": [
+    {"id": "luna", "model": "gpt-6-luna", "effort": "high"},
+    {"id": "terra", "model": "gpt-6.1-terra", "effort": "high"},
+    {"id": "sol", "model": "gpt-6.1-sol", "effort": "high"}
+  ],
+  "arms": ["direct", "tools"]
+}

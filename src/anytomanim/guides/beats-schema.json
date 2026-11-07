@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnyToManim beat sheet",
+  "type": "object",
+  "required": ["title", "language", "beats"],
+  "properties": {
+    "title": { "type": "string" },
+    "language": { "enum": ["en", "zh"] },
+    "style": { "type": "string", "description": "TTS style prompt" },
+    "voice": { "type": "string", "description": "preset name from voices.json" },
+    "audio_manifest": { "type": "object" },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "narration", "visual"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^b[0-9]{2,}$" },
+          "narration": { "type": "string", "description": "spoken text; spell out numbers" },
+          "subtitle": {
+            "type": "object",
+            "description": "optional subtitle text per language, e.g. {\"en\": \"...\", \"zh\": \"...\"}",
+            "additionalProperties": { "type": "string" }
+          },
+          "visual": { "type": "string", "description": "imperative on-screen description" },
+          "est_seconds": { "type": "integer" },
+          "audio_file": { "type": "string" },
+          "audio_seconds": { "type": "number", "description": "measured wav duration" },
+          "audio_narration": { "type": "string", "description": "narration the wav was made from (tts --beats bookkeeping)" },
+          "audio_fingerprint": { "type": "string", "description": "synthesis input fingerprint for safe resume; written by tts --beats" },
+          "audio_voice": { "type": "string", "description": "voice the wav was made with (tts --beats bookkeeping)" }
+        }
+      }
+    }
+  }
+}

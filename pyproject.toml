@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anytomanim"
+version = "0.1.0"
+description = "Agent-callable toolchain for narrated 3Blue1Brown-style explainer videos — narration-first A/V sync by construction."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "openai>=1.0",
+    "soundfile>=0.12",
+    "numpy",
+    "manim>=0.18",
+    "manim-voiceover>=0.3",
+    "imageio-ffmpeg>=0.4",
+]
+
+[project.scripts]
+anytomanim = "anytomanim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+anytomanim = ["guides/*", "guides/recipes/*", "voices.json", "*.swift"]
